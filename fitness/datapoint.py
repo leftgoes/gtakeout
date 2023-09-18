@@ -1,6 +1,5 @@
 from datetime import datetime
 from dataclasses import dataclass
-from typing import Self
 
 BASIC_ACTIVITY: set[str] = {'calisthenics', 'sleep'}
 DISTANCE_ACTIVITY: set[str] = {'biking'}

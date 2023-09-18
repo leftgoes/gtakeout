@@ -1,16 +1,16 @@
 import json
 import os
 
-from . import cultureinfo
-from .cultureinfo import CultureInfo
-from .series import SeriesContainer
+from .. import cultureinfo
+from ..cultureinfo import CultureInfo
+from .seriescontainer import FitnessSeriesContainer
 
-class GoogleFit:
+class GFit:
     def __init__(self, directory: str, cultureinfo: int = CultureInfo.DE) -> None:
         self.directory = directory
         self._cinfo = cultureinfo
 
-        self.data = SeriesContainer()
+        self.data = FitnessSeriesContainer()
 
     @property
     def all_sessions_dir(self) -> str:
@@ -22,6 +22,3 @@ class GoogleFit:
                 jdata = json.load(f)
             self.data.append(jdata)
         self.data.sort_all()
-        print(self.data)
-        print(min(self.data.sleep), max(self.data.sleep))
-
